@@ -1,0 +1,268 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    /* Pure clean white background */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #E9252B; /* Primary text is Red */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing background ambient lights using Red opacity */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.15;
+}
+body::before {
+    width: 500px;
+    height: 500px;
+    background: #E9252B;
+    top: -100px;
+    right: -100px;
+}
+body::after {
+    width: 400px;
+    height: 400px;
+    background: #E9252B;
+    bottom: -50px;
+    left: -50px;
+}
+
+/* Main Outer Card */
+.page-wrapper {
+    display: flex;
+    background: #ffffff;
+    width: 950px;
+    height: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    /* Soft red-tinted shadow to give massive depth without being flat */
+    box-shadow: 
+        0 4px 6px -1px rgba(233, 37, 43, 0.05),
+        0 10px 15px -3px rgba(233, 37, 43, 0.05),
+        0 20px 25px -5px rgba(233, 37, 43, 0.05),
+        0 30px 50px -10px rgba(233, 37, 43, 0.1);
+    border: 1px solid rgba(233, 37, 43, 0.15);
+    z-index: 1;
+}
+
+/* Left Side - Pure solid Red with white text */
+.brand-side {
+    flex: 1.1;
+    background: #E9252B;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Massive background cross made using white transparency */
+.brand-side::before {
+    content: '+';
+    position: absolute;
+    font-size: 26rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.08);
+    top: -50px;
+    right: -30px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.brand-side h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.brand-side p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Right Side - Pure white with red accents */
+.form-side {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.form-header h2 {
+    color: #E9252B;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: rgba(233, 37, 43, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+}
+
+/* Form Controls */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #E9252B;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid rgba(233, 37, 43, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #E9252B;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom placeholder color so it matches the red theme */
+input::placeholder {
+    color: rgba(233, 37, 43, 0.4);
+}
+
+input:focus {
+    border-color: #E9252B;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(233, 37, 43, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Pure Red Buttons with hover depth */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button[name="login"] {
+    background: #E9252B;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(233, 37, 43, 0.2);
+    margin-top: 10px;
+}
+
+button[name="login"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 37, 43, 0.3);
+    background: #d11d23; /* A slightly darker red purely for the hover state */
+}
+
+/* Secondary Action Area */
+.register-section {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+}
+
+/* Separator line using subtle red transparency */
+.register-section::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(233, 37, 43, 0.2), transparent);
+}
+
+.register-section p {
+    font-size: 0.9rem;
+    color: rgba(233, 37, 43, 0.8);
+    margin-bottom: 12px;
+}
+
+button[type="button"] {
+    background: #ffffff;
+    color: #E9252B;
+    border: 1px solid #E9252B;
+}
+
+button[type="button"]:hover {
+    background: rgba(233, 37, 43, 0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(233, 37, 43, 0.1);
+}
+
+/* Error Alert Box */
+.error-msg {
+    background: rgba(233, 37, 43, 0.05);
+    color: #E9252B;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(233, 37, 43, 0.2);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    text-align: center;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-wrapper {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        margin: 20px;
+    }
+    .brand-side {
+        padding: 40px 30px;
+        text-align: center;
+    }
+    .brand-side::before {
+        display: none;
+    }
+    .form-side {
+        padding: 40px 30px;
+    }
+}

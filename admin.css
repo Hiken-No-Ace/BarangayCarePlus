@@ -1,0 +1,103 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Body (Pure White environment) */
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Ambient Red lights to eliminate the flat feel */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.15;
+}
+body::before {
+    width: 400px;
+    height: 400px;
+    background: #E9252B;
+    top: -100px;
+    right: -100px;
+}
+body::after {
+    width: 300px;
+    height: 300px;
+    background: #E9252B;
+    bottom: -50px;
+    left: -50px;
+}
+
+/* Dashboard Header */
+h2 {
+    color: #E9252B;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Targeting the raw links directly to create high-end menu blocks */
+a {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    color: #E9252B;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    padding: 16px;
+    border: 1px solid rgba(233, 37, 43, 0.2);
+    border-radius: 12px;
+    margin: 0 auto; /* Centers the blocks */
+    box-shadow: 0 4px 6px rgba(233, 37, 43, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effects to give it beauty and tactility */
+a:hover {
+    transform: translateY(-3px);
+    background-color: #E9252B;
+    color: #ffffff;
+    box-shadow: 0 8px 15px rgba(233, 37, 43, 0.2);
+    border-color: #E9252B;
+}
+
+/* Customizing the Logout link specifically so it stands out */
+a[href*="logout"] {
+    background-color: #ffffff;
+    color: #E9252B;
+    border: 2px solid #E9252B;
+    margin-top: 20px; /* Separates the logout button */
+}
+
+a[href*="logout"]:hover {
+    background-color: #E9252B;
+    color: #ffffff;
+}
+
+/* Hiding your <br> tags since modern CSS block layouts don't need them! */
+br {
+    display: none;
+}
